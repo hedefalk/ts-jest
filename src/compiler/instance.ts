@@ -2,6 +2,7 @@ import { Logger } from 'bs-logger'
 import { readFileSync } from 'fs'
 import mkdirp = require('mkdirp')
 import { basename, extname } from 'path'
+import { ModuleKind } from 'typescript'
 
 import { ConfigSet } from '../config/config-set'
 import { CompileFn, CompilerInstance, MemoryCache, TSFile, TsCompiler } from '../types'
@@ -103,10 +104,16 @@ export const createCompilerInstance = (configs: ConfigSet): TsCompiler => {
   /**
    * Get the extension for a transpiled file.
    */
-  const getExtension =
-    compilerOptions.jsx === ts.JsxEmit.Preserve
-      ? (path: string) => (/\.[tj]sx$/.test(path) ? '.jsx' : '.js')
-      : (_: string) => '.js'
+  const getExtension = (path: string) => {
+    const jsExtension = configs.tsJest.experimentalEsm && compilerOptions.module === ModuleKind.ESNext ? '.mjs' : '.js'
+
+    if (compilerOptions.jsx === ts.JsxEmit.Preserve) {
+      return /\.[tj]sx$/.test(path) ? '.jsx' : jsExtension
+    } else {
+      return jsExtension
+    }
+  }
+
   let compilerInstance: CompilerInstance
   if (!tsJest.isolatedModules) {
     // Use language services by default

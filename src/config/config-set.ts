@@ -305,6 +305,7 @@ export class ConfigSet {
       compiler: options.compiler ?? 'typescript',
       transformers,
       stringifyContentPathRegex,
+      experimentalEsm: !!options.experimentalEsm,
     }
     this.logger.debug({ tsJestConfig: res }, 'normalized ts-jest config')
 
@@ -617,9 +618,8 @@ export class ConfigSet {
       sourceRoot: undefined,
       tsBuildInfoFile: undefined,
     }
-    // force the module kind if not piping babel-jest
-    if (!this.tsJest.babelConfig) {
-      // commonjs is required for jest
+    // force the module kind if not piping babel-jest or using experimental esm feature
+    if (!this.tsJest.experimentalEsm && !this.tsJest.babelConfig) {
       options.module = this.compilerModule.ModuleKind.CommonJS
     }
 

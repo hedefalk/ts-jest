@@ -22,6 +22,7 @@ export function tsJestConfig(options?: Partial<TsJestConfig>): TsJestConfig {
     packageJson: undefined,
     stringifyContentPathRegex: undefined,
     diagnostics: { ignoreCodes: [], pretty: false, throws: true },
+    experimentalEsm: false,
     ...options,
   }
 }

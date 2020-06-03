@@ -137,6 +137,14 @@ export interface TsJestGlobalOptions {
    * exporting the content of the file as a string
    */
   stringifyContentPathRegex?: string | RegExp
+
+  /**
+   * Output ecmascript modules. This will for now output files with .mjs extension to
+   * ensure jest treats them as modules.
+   *
+   * @default undefined (disabled)
+   */
+  experimentalEsm?: boolean
 }
 
 interface TsJestConfig$tsConfig$file {
@@ -183,6 +191,7 @@ export interface TsJestConfig {
   diagnostics: TsJestConfig$diagnostics
   babelConfig: TsJestConfig$babelConfig
   transformers: string[]
+  experimentalEsm: boolean
   // to deprecate / deprecated === === ===
   stringifyContentPathRegex: TsJestConfig$stringifyContentPathRegex
 }
