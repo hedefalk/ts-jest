@@ -3,15 +3,15 @@
  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>ts-jest | ts-jest is a TypeScript preprocessor with source map support for Jest that lets you use Jest to test projects written in TypeScript.</title>
+<title>AST transformers option | ts-jest</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="ts-jest" />
+<meta property="og:title" content="AST transformers option" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="ts-jest is a TypeScript preprocessor with source map support for Jest that lets you use Jest to test projects written in TypeScript." />
 <meta property="og:description" content="ts-jest is a TypeScript preprocessor with source map support for Jest that lets you use Jest to test projects written in TypeScript." />
 <meta property="og:site_name" content="ts-jest" />
 <script type="application/ld+json">
-{"@type":"WebPage","url":"/ts-jest/404.html","headline":"ts-jest","description":"ts-jest is a TypeScript preprocessor with source map support for Jest that lets you use Jest to test projects written in TypeScript.","@context":"https://schema.org"}</script>
+{"@type":"WebPage","url":"/ts-jest/user/config/astTransformers.html","headline":"AST transformers option","description":"ts-jest is a TypeScript preprocessor with source map support for Jest that lets you use Jest to test projects written in TypeScript.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/ts-jest/assets/css/main.css"><link type="application/atom+xml" rel="alternate" href="/ts-jest/feed.xml" title="ts-jest" /><script src="/ts-jest/assets/js/bootstrap/jquery.min.js"></script>
   <script src="/ts-jest/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
@@ -38,7 +38,7 @@
     
     
     
-      <li class="nav-item dropdown ">
+      <li class="nav-item dropdown active">
         <a href="/ts-jest/user"
            class="nav-link dropdown-toggle"
            data-toggle="dropdown"
@@ -131,19 +131,65 @@
 </nav>
 <div class="py-5">
       <div class="container page-content">
-          <div class="container text-center">
-  <h1>404</h1>
+          <article>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+  <header>
+    <h1>AST transformers option</h1>
+  </header>
+
+  <section>
+    <p><code class="language-plaintext highlighter-rouge">ts-jest</code> by default does hoisting for a few <code class="language-plaintext highlighter-rouge">jest</code> methods via a TypeScript AST transformer. One can also create custom
+TypeScript AST transformers and provide them to <code class="language-plaintext highlighter-rouge">ts-jest</code> to include into compilation process.</p>
+
+<p>The option is <code class="language-plaintext highlighter-rouge">astTransformers</code> and it allows ones to specify which TypeScript AST transformers to use with <code class="language-plaintext highlighter-rouge">ts-jest</code>.</p>
+
+<h3 id="examples">Examples</h3>
+
+<div class="row"><div class="col-md-6">
+
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// jest.config.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// [...]</span>
+  <span class="na">globals</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">ts-jest</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">astTransformers</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">my-custom-transformer</span><span class="dl">'</span><span class="p">],</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>    </div>
+
+  </div><div class="col-md-6">
+
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// OR package.json</span>
+<span class="p">{</span>
+  <span class="c1">// [...]</span>
+  <span class="dl">"</span><span class="s2">jest</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">globals</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">ts-jest</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nl">astTransformers</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">my-custom-transformer</span><span class="dl">'</span><span class="p">],</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+  </div></div>
+
+<h3 id="writing-custom-typescript-ast-transformers">Writing custom TypeScript AST transformers</h3>
+
+<p>To write a custom TypeScript AST transformers, one can take a look at the one that <code class="language-plaintext highlighter-rouge">ts-jest</code> is using at
+https://github.com/kulshekhar/ts-jest/tree/master/src/transformers</p>
+
+  </section>
+
+</article>
 
       </div>
     </div><div class="py-1 bg-light">
   <div class="container">
     <div class="row">
       <div class="col-sm text-right">
-        <a href="https://github.com/kulshekhar/ts-jest/tree/master/docs/404.html">
+        <a href="https://github.com/kulshekhar/ts-jest/tree/master/docs/user/config/astTransformers.md">
           edit this page <i class="far fa-edit"></i>
         </a>
       </div>

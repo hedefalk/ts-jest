@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>/ts-jest/user/config/astTransformers.html</loc>
+</url>
+<url>
 <loc>/ts-jest/user/babel7-or-ts.html</loc>
 </url>
 <url>
@@ -13,16 +16,16 @@
 <loc>/ts-jest/user/config/diagnostics.html</loc>
 </url>
 <url>
-<loc>/ts-jest/user/react-native/</loc>
+<loc>/ts-jest/tech/e2e/</loc>
+</url>
+<url>
+<loc>/ts-jest/tech/process/</loc>
 </url>
 <url>
 <loc>/ts-jest/user/config/</loc>
 </url>
 <url>
-<loc>/ts-jest/tech/e2e/</loc>
-</url>
-<url>
-<loc>/ts-jest/tech/process/</loc>
+<loc>/ts-jest/user/react-native/</loc>
 </url>
 <url>
 <loc>/ts-jest/</loc>
@@ -32,6 +35,9 @@
 </url>
 <url>
 <loc>/ts-jest/user/config/isolatedModules.html</loc>
+</url>
+<url>
+<loc>/ts-jest/user/config/packageJson.html</loc>
 </url>
 <url>
 <loc>/ts-jest/user/config/stringifyContentPathRegex.html</loc>
